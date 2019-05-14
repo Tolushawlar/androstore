@@ -1,0 +1,75 @@
+{% extends "Shop/base.html" %}
+{% load static %}
+
+{% block content %}
+    
+      <div class="container-fluid">
+         <div class="row" style="margin-top: 6%; margin-left: 30px;">
+   
+           <div class="col-sm-8  blog-main">
+   
+             <div class="blog-post">
+                 <div class="row">
+                   {% if queryset %}
+                     {% for result in queryset %}
+                         <div class="col-md-4 ">
+                           <div class="thumbnail">
+                               <a href="{% url 'ProductDetails' id=result.id %}">
+                                   <img src="{% if result.image %} {{ result.image.url }} {% else %} {% static 'img/default.jpg' %} {% endif %}" alt="..." style="height: 130px; width: auto">
+                               </a>
+                               <div class="caption">
+                                   <h3 class="text-center">
+                                       <a href="{% url 'ProductDetails' id=result.id %}">{{ result.name }}</a>
+                                   </h3>
+                                   <p class="text-center"># {{ result.price }}</p>
+                               </div>
+                           </div>
+                         </div>
+                     {% endfor %}
+                     {% else %}
+                         <p  > No Result for Your Search</p>
+                  {% endif %}
+                 </div>
+   
+             </div><!-- /.blog-post -->
+   
+           </div><!-- /.blog-main -->
+   
+           <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+             <div class="sidebar-module">
+               <h4>Categories</h4>
+               <ol class="list-unstyled">
+                 <li {% if not category %} class="active"{% endif %}><a href="{% url "ProductList" %}" class="btn btn-primary">All</a></li>
+                 <br>
+               {% for c in categories %}
+   
+                 <li {% if category.slug == c.slug %} class="active"{% endif %}>
+                     
+                     <h6><a href="#" class="btn btn-primary">{{ c.name }}</a></h6>
+                 </li>
+               {% endfor %}
+               </ol>
+               <h3>Mens wear</h3>
+               {% for items in men %}
+                    {{ items.name }}
+                    {{ items.price }}
+               {% endfor %}
+             </div>
+             <br>
+             <div class="suscribe">
+              <h3>Subscribe For Updates</h3>
+              <form action="." method="POST">
+                {% csrf_token %}
+                <input type="text" name="email" id="email" class="form-control" placeholder="Enter Your Mail Address">
+                <br>
+                <button class="btn btn-info" type="submit">Subscribe</button>
+              </form>
+
+            </div>
+           </div><!-- /.blog-sidebar -->
+   
+         </div><!-- /.row -->
+   
+       </div><!-- /.container -->
+
+{% endblock %}

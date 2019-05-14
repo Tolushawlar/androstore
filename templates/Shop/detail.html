@@ -1,0 +1,93 @@
+{% extends "Shop/base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<!--
+   <div class="container">
+      <div class="row" style="margin-top: 6%">
+
+        <div class="col-sm-8 blog-main">
+
+          <div class="blog-post">
+              <div class="row">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="col-md-6 text-right">
+                            <img src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/default.jpg' %} {% endif %}" alt="..." style="height: 170px; width: auto">
+                        </div>
+                        <div class="col-md-6" style="padding-left: 20px">
+                            <h3>{{ product.name }}</h3>
+                            <h6><a href="#">{{ product.category }}</a></h6>
+                            <p class="text-muted">Kshs. {{ product.price }}</p>
+                            <form action="{% url "cart:cart_add" product.id %}" method="post">
+                                {% csrf_token %}
+                                {{ cart_product_form }}
+                                <input type="submit" value="add to cart" class="btn btn-primary">
+                            </form>
+                            <p>{{ product.description|safe|linebreaksbr }}</p>
+                        </div>
+                    </div>
+                </div>
+              </div>
+
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+-->
+
+<br>
+    <h1 class="text-center center"> {{ product.name }}</h1>
+    <br>
+    <div class="contains">
+        <div class="row ml-5 mr-5">
+            <div class="col-lg-3 card pl-3 pt-5" style="">
+                <img src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/default.jpg' %} {% endif %}" alt="..." style="height: 170px; width: 150px">
+                <h4>Product category: {{ product.category }} </h4>
+                <h5>Product Price : #{{ product.price }}</h5>
+            </div>
+            
+            <div class="col-lg-1"></div>
+
+            <div class="col-lg-5 card">
+                <h4>Product Description</h4>
+                {{ product.description }}
+                <br>
+                <form action="{% url "cart:cart_add" product.id %}" method="post">
+                        {% csrf_token %}
+                        {{ cart_product_form }}
+                        <br>
+                        <input type="submit" value="Add to Cart" class="btn btn-primary">
+                    </form>
+            </div>
+
+            <div class="col-lg-1"></div>
+
+            <div class="col-lg-2 order-sm-1 ">
+                <h3>Categories</h3>
+                <h6><a href="{% url "ProductList" %}"><div class="btn btn-primary">All</div></a></h6>
+                {% for cat in categories %}
+                    <h6><a href="#" class="btn btn-primary">{{ cat.name }}</a></h6>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+
+    <div class="container">
+        <h2>Produt Reviews:</h2>
+        <br>
+        <div class="well p-4" style="background-color:grey;">
+            <div class="text-right">
+                <a class="btn btn-success">Post Review</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

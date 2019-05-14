@@ -1,0 +1,177 @@
+{% extends "Shop/base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+      <!-- for the searching -->
+      <div class="searching ">
+          <div class="center">
+              <form class="form-inline", action="{% url "Search" %}">
+                  <input type="text" name="q" class="form-control" placeholder="Search Store" aria-describedby="button-addon1">
+                  <div class="input-group-prepend">
+                    <button class="btn btn-success btn-lg" type="submit" id="button-addon1">Search</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+      
+      <!-- Carosel for the dispaly of the main store content -->
+    <div class="display Carosel">
+            <div class="bd-example">
+                    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                      <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                      </ol>
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <img src="{% static 'Shop/img/carousel/01.jpg' %}" class="d-block w-100" alt="..."> 
+                          <div class="carousel-caption d-none d-md-block">
+                            <h5>First slide label</h5>
+                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                          </div>
+                        </div>
+                        <div class="carousel-item">
+                          <img src="{% static "Shop/img/carousel/02.jpg" %}" class="d-block w-100" alt="...">
+                          <div class="carousel-caption d-none d-md-block">
+                            <h5>Second slide label</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                          </div>
+                        </div>
+                        <div class="carousel-item">
+                          <img src="{% static "Shop/img/carousel/03.jpg" %}" class="d-block w-100" alt="...">
+                          <div class="carousel-caption d-none d-md-block">
+                            <h5>Third slide label</h5>
+                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                          </div>
+                        </div>
+                      </div>
+                      <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                      <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+                </div>
+    </div>
+
+      <!-- *** ADVANTAGES HOMEPAGE ***
+        _________________________________________________________
+        -->
+        <div id="advantages">
+          <div class="container">
+            <div class="row mb-4">
+              <div class="col-md-4">
+                <div class="box clickable d-flex flex-column justify-content-center mb-0 h-100">
+                  <div class="icon"><i class="fa fa-heart"></i></div>
+                  <h3><a href="#">We love our customers</a></h3>
+                  <p class="mb-0">We are known to provide best possible service ever</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="box clickable d-flex flex-column justify-content-center mb-0 h-100">
+                  <div class="icon"><i class="fa fa-tags"></i></div>
+                  <h3><a href="#">Best prices</a></h3>
+                  <p class="mb-0">You can check that the height of the boxes adjust when longer text like this one is used in one of them.</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="box clickable d-flex flex-column justify-content-center mb-0 h-100">
+                  <div class="icon"><i class="fa fa-thumbs-up"></i></div>
+                  <h3><a href="#">100% satisfaction guaranteed</a></h3>
+                  <p class="mb-0">Free returns on everything for 3 months.</p>
+                </div>
+              </div>
+            </div>
+            <!-- /.row-->
+          </div>
+          <!-- /.container-->
+        </div>
+        <!-- /#advantages-->
+        <!-- *** ADVANTAGES END ***-->
+
+<!-- Hot section of the week -->
+<div class="hot-header">
+        <h1 class="text-center text-capitalize">HOT THIS WEEK</h1>
+  </div>
+</div>
+
+<div class="hot">
+  <div class="row">
+    <div class="container">
+      <div class="row mb-4">
+          {% for items in latest %}
+            <div class="col-md-4">
+              <div class="box clickable d-flex flex-column justify-content-center mb-0 h-100">
+                <a href="{% url "ProductDetails" id=items.id %}"><img class="justify-content-center" src="{% if items.image %} {{ items.image.url }} {% else %} {% static 'img/default.j' %} {% endif %}" alt="..." style="height: 130px; width: auto"></a>
+                <h3 class="content-justify text-center"><a href="{% url 'ProductDetails' id=items.id %}">{{ items.name }}</a></h3>
+                <p class="mb-0 content-justify text-center">{{ items.price }}</p>
+              </div>
+            </div>
+          {% endfor %}
+      </div>
+      <!-- /.row-->
+    </div>
+  </div>
+</div>
+      
+      <div class="container-fluid">
+         <div class="row" style="margin-top: 6%; margin-left: 30px;">
+   
+           <div class="col-sm-8  blog-main">
+   
+             <div class="blog-post">
+                 <div class="row">
+                     {% for product in products %}
+                         <div class="col-md-4 ">
+                           <div class="thumbnail">
+                               <a href="{% url 'ProductDetails' id=product.id %}">
+                                   <img src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/default.j' %} {% endif %}" alt="..." style="height: 130px; width: auto">
+                               </a>
+                               <div class="caption">
+                                   <h3 class="text-center">
+                                       <a href="{% url 'ProductDetails' id=product.id %}">{{ product.name }}</a>
+                                   </h3>
+                                   <p class="text-center"># {{ product.price }}</p>
+                               </div>
+                           </div>
+                         </div>
+                     {% endfor %}
+                 </div>
+             </div><!-- /.blog-post -->
+           </div><!-- /.blog-main -->
+   
+           <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+             <div class="sidebar-module">
+               <h4 class="text-center justify-content-center text-capitalize">Categories</h4>
+               <hr>
+               <ol class="list-unstyled">
+                 <li {% if not category %} class="active"{% endif %}><a href="{% url "ProductList" %}" class="btn btn-primary">All</a></li>
+                 <br>
+                 <li><a href="{% url "Men" %}" class="btn btn-primary">Men's Wear</a></li>
+                 <br>
+                 <li><a href="{% url "Ladies" %}" class="btn btn-primary">Women's Wear</a></li>
+                 <br>
+                 <li><a href="{% url "Kids" %}" class="btn btn-primary">Kid's Wear</a></li>
+                 <br>
+                 <li><a href="{% url "Watch" %}" class="btn btn-primary">Watches</a></li>
+                 <br>
+                 <li><a href="{% url "Bags" %}" class="btn btn-primary">Bags</a></li>
+                 <br>
+                 <li><a href="{% url "Shoes" %}" class="btn btn-primary">Shoe's</a></li>
+             </div>
+             <hr>
+
+           
+           </div><!-- /.blog-sidebar -->
+   
+         </div><!-- /.row -->
+   
+       </div><!-- /.container -->
+
+{% endblock %}
