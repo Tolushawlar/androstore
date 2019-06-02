@@ -27,24 +27,24 @@
                       </ol>
                       <div class="carousel-inner">
                         <div class="carousel-item active">
-                          <img src="{% static 'Shop/img/carousel/01.jpg' %}" class="d-block w-100" alt="..."> 
+                          <img src="{% static 'Shop/img/carousel/adolescent-beautiful-brunette-919436.jpg' %}" class="d-block w-100" alt="..."> 
                           <div class="carousel-caption d-none d-md-block">
-                            <h5>First slide label</h5>
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                            <h3>Comfortablity</h3>
+                            <h4>Our store is committed to bring to your doorstep the very best of our services whereever you require them</h4>
                           </div>
                         </div>
                         <div class="carousel-item">
-                          <img src="{% static "Shop/img/carousel/02.jpg" %}" class="d-block w-100" alt="...">
+                          <img src="{% static "Shop/img/carousel/accessories-accessory-boots-322207.jpg" %}" class="d-block w-100" alt="...">
                           <div class="carousel-caption d-none d-md-block">
-                            <h5>Second slide label</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <h3>Classic</h3>
+                            <h4>Standout extraordinary from others with the wide range of products available for you satisfaction.</h4>
                           </div>
                         </div>
                         <div class="carousel-item">
-                          <img src="{% static "Shop/img/carousel/03.jpg" %}" class="d-block w-100" alt="...">
+                          <img src="{% static "Shop/img/carousel/black-friday-fashion-friends-1345082.jpg" %}" class="d-block w-100" alt="...">
                           <div class="carousel-caption d-none d-md-block">
-                            <h5>Third slide label</h5>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                            <h3>Uniqueness</h3>
+                            <h4>Upgrade your social appearence with an increase in the test of your fashion sense.</h4>
                           </div>
                         </div>
                       </div>
@@ -70,21 +70,21 @@
                 <div class="box clickable d-flex flex-column justify-content-center mb-0 h-100">
                   <div class="icon"><i class="fa fa-heart"></i></div>
                   <h3><a href="#">We love our customers</a></h3>
-                  <p class="mb-0">We are known to provide best possible service ever</p>
+                  <p class="mb-0">We are known to provide best possible service ever, satisfaction of our customers is our priority</p>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="box clickable d-flex flex-column justify-content-center mb-0 h-100">
                   <div class="icon"><i class="fa fa-tags"></i></div>
                   <h3><a href="#">Best prices</a></h3>
-                  <p class="mb-0">You can check that the height of the boxes adjust when longer text like this one is used in one of them.</p>
+                  <p class="mb-0">You can rest assured of the quality of the products you get from us .</p>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="box clickable d-flex flex-column justify-content-center mb-0 h-100">
                   <div class="icon"><i class="fa fa-thumbs-up"></i></div>
                   <h3><a href="#">100% satisfaction guaranteed</a></h3>
-                  <p class="mb-0">Free returns on everything for 3 months.</p>
+                  <p class="mb-0">You will indeed decide to keep patronizing us after giving us a chance to satisfy you</p>
                 </div>
               </div>
             </div>
@@ -106,7 +106,7 @@
     <div class="container">
       <div class="row mb-4">
           {% for items in latest %}
-            <div class="col-md-4">
+            <div class="col-md-4 hot-items">
               <div class="box clickable d-flex flex-column justify-content-center mb-0 h-100">
                 <a href="{% url "ProductDetails" id=items.id %}"><img class="justify-content-center" src="{% if items.image %} {{ items.image.url }} {% else %} {% static 'img/default.j' %} {% endif %}" alt="..." style="height: 130px; width: auto"></a>
                 <h3 class="content-justify text-center"><a href="{% url 'ProductDetails' id=items.id %}">{{ items.name }}</a></h3>
@@ -166,7 +166,16 @@
                  <li><a href="{% url "Shoes" %}" class="btn btn-primary">Shoe's</a></li>
              </div>
              <hr>
+             <div class="suscribe">
+              <h3>Subscribe For Updates</h3>
+              <form action="." method="POST">
+                {% csrf_token %}
+                <input type="text" name="email" id="email" class="form-control" placeholder="Enter Your Mail Address">
+                <br>
+                <button class="btn btn-info" type="submit">Subscribe</button>
+              </form>
 
+            </div>
            
            </div><!-- /.blog-sidebar -->
    

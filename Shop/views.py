@@ -81,7 +81,7 @@ def login(request):
 
 # views for the various sections of categories that are in the store
 def men(request):
-    query = Product.objects.filter(search='men')
+    query = Product.objects.filter(search__icontains='men')
     categories = Category.objects.all()
     context = {
         'categories': categories,
@@ -90,7 +90,7 @@ def men(request):
     return render(request, "Shop/cat.html", context)
 
 def watch(request):
-    query = Product.objects.filter(search='watch')
+    query = Product.objects.filter(search__icontains='watch')
     categories = Category.objects.all()
     context = {
         'categories': categories,
@@ -99,7 +99,7 @@ def watch(request):
     return render(request, "Shop/cat.html", context)
 
 def ladies(request):
-    query = Product.objects.filter(search='women')
+    query = Product.objects.filter(search__icontains='women')
     categories = Category.objects.all()
     context = {
         'categories': categories,
@@ -108,7 +108,7 @@ def ladies(request):
     return render(request, "Shop/cat.html", context)
 
 def bags(request):
-    query = Product.objects.filter(search='bags')
+    query = Product.objects.filter(search__icontains='bags')
     categories = Category.objects.all()
     context = {
         'categories': categories,
@@ -117,7 +117,7 @@ def bags(request):
     return render(request, "Shop/cat.html", context)
 
 def kids(request):
-    query = Product.objects.filter(search='kids')
+    query = Product.objects.filter(search__icontains='kids')
     categories = Category.objects.all()
     context = {
         'categories': categories,
@@ -126,7 +126,7 @@ def kids(request):
     return render(request, "Shop/cat.html", context)
 
 def shoes(request):
-    query = Product.objects.filter(search='shoes')
+    query = Product.objects.filter(search__icontains='shoes')
     categories = Category.objects.all()
     context = {
         'categories': categories,

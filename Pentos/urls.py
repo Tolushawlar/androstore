@@ -37,7 +37,7 @@ urlpatterns = [
     path('accounts/login/', auth_views.LoginView.as_view(template_name="Shop/login.html"), name="Login"),
     path('accounts/logout/', auth_views.LogoutView.as_view(template_name="Shop/logout.html"), name="Logout"),
     # for the details of the products in the shop appication
-    path('pentos/<int:id>/', views.product_detail, name="ProductDetails"),
+    path('andros/<int:id>/', views.product_detail, name="ProductDetails"),
     #for the searching of the store
     path('search/', views.search, name="Search"),
 

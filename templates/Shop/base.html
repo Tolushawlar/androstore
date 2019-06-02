@@ -51,11 +51,11 @@
                         Categories
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Men's Wear</a>
-                        <a class="dropdown-item" href="#">Women's Wear</a>
-                        <a class="dropdown-item" href="#"> Kid's Wear</a>
-                        <a class="dropdown-item" href="#"> Footwear's</a>
-                        <a class="dropdown-item" href="#"> Bag's</a>
+                        <a class="dropdown-item" href="{% url 'Men' %}">Men's Wear</a>
+                        <a class="dropdown-item" href="{% url 'Ladies' %}">Women's Wear</a>
+                        <a class="dropdown-item" href="{% url 'Kids' %}"> Kid's Wear</a>
+                        <a class="dropdown-item" href="{% url 'Shoes' %}"> Footwear's</a>
+                        <a class="dropdown-item" href="{% url 'Bags' %}"> Bag's</a>
                     </div>
                     </li>
                 </ul>
@@ -147,16 +147,16 @@
                 <div class="col-lg-3 col-md-6">
                   <h4 class="mb-3">Pages</h4>
                   <ul class="list-unstyled">
-                    <li><a href="text.html">About us</a></li>
-                    <li><a href="text.html">Terms and conditions</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="contact.html">Contact us</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Terms and conditions</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contact us</a></li>
                   </ul>
                   <hr>
                   <h4 class="mb-3">User section</h4>
                   <ul class="list-unstyled">
-                    <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
-                    <li><a href="register.html">Regiter</a></li>
+                    <li><a href="{% url 'Login' %}">Login</a></li>
+                    <li><a href="{% url 'Register' %}">Register</a></li>
                   </ul>
                 </div>
                 <!-- /.col-lg-3-->
@@ -179,11 +179,12 @@
                 <!-- /.col-lg-3-->
                 <div class="col-lg-3 col-md-6">
                   <h4 class="mb-3">Where to find us</h4>
-                  <p><strong>Obaju Ltd.</strong><br>13/25 New Avenue<br>New Heaven<br>45Y 73J<br>England<br><strong>Great Britain</strong></p><a href="contact.html">Go to contact page</a>
+                  <p><strong>Obaju Ltd.</strong><br>13/25 Femi-Coker Avenue<br>Yaba<br>Lagos<br><strong>Nigeria</strong></p>
                   <hr class="d-block d-md-none">
                 </div>
                 <!-- /.col-lg-3-->
                 <div class="col-lg-3 col-md-6">
+                  <!--
                   <h4 class="mb-3">Get the news</h4>
                   <p class="text-muted">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
                   <form action="." method="POST">
@@ -192,8 +193,9 @@
                       <input type="text"  name="email" id="email" class="form-control" placeholder=" Mail Address"><span class="input-group-append">
                         <button type="submit" class="btn btn-outline-secondary">Subscribe!</button></span>
                     </div>
-                    <!-- /input-group-->
+                    
                   </form>
+                -->
                   <h4 class="mb-3">Stay in touch</h4>
                   <p class="social"><a href="#" class="facebook external"><i class="fa fa-facebook"></i></a><a href="#" class="twitter external"><i class="fa fa-twitter"></i></a><a href="#" class="instagram external"><i class="fa fa-instagram"></i></a><a href="#" class="gplus external"><i class="fa fa-google-plus"></i></a><a href="#" class="email external"><i class="fa fa-envelope"></i></a></p>
                 </div>
@@ -207,9 +209,9 @@
           <!-- *** FOOTER END ***-->
           
 
-    <div class="footer py-5" style="background-color:black;">
+    <div class="footer py-3" style="background-color:black;">
         <div class="container">
-                <p class="m-0 text-center text-white small">Copyright &copy; Your Website 2017</p>
+                <p class="m-0 text-center text-white small">Copyright &copy; AndrosStore 2019</p>
               </div>
     </div>
     <!-- Optional JavaScript -->

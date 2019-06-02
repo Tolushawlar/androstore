@@ -2,19 +2,6 @@
 {% load static %}
 
 {% block content %}
-      <!-- for the searching -->
-      <br>
-      <div class="searching container">
-          <div class="center">
-              <form class="form-inline", action="{% url "Search" %}">
-                  <input type="text" name="q" class="form-control" placeholder="Search Store" aria-describedby="button-addon1">
-                  <div class="input-group-prepend">
-                    <button class="btn btn-success btn-lg" type="submit" id="button-addon1">Search</button>
-                  </div>
-              </form>
-          </div>
-      </div>
-  
       <div class="container-fluid">
          <div class="row" style="margin-top: 6%; margin-left: 30px;">
    
@@ -42,29 +29,29 @@
                  `
    
              </div><!-- /.blog-post -->
-             <h2 id="Cat">Hot This Week </h2>
-             <h2> Men's Wear</h2>
-             <h2> Women's Wear</h2>
-             <h2> Accessories </h2>
    
            </div><!-- /.blog-main -->
    
            <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-             <div class="sidebar-module">
-               <h4>Categories</h4>
-               <ol class="list-unstyled">
-                 <li {% if not category %} class="active"{% endif %}><a href="{% url "ProductList" %}" class="btn btn-primary">All</a></li>
-                 <br>
-               {% for c in categories %}
-   
-                 <li {% if category.slug == c.slug %} class="active"{% endif %}>
-                     
-                     <h6><a href="#" class="btn btn-primary">{{ c.name }}</a></h6>
-                 </li>
-               {% endfor %}
-               </ol>
-
-             </div>
+            <div class="sidebar-module">
+                <h4 class="text-center justify-content-center text-capitalize">Categories</h4>
+                <hr>
+                <ol class="list-unstyled">
+                  <li {% if not category %} class="active"{% endif %}><a href="{% url "ProductList" %}" class="btn btn-primary">All</a></li>
+                  <br>
+                  <li><a href="{% url "Men" %}" class="btn btn-primary">Men's Wear</a></li>
+                  <br>
+                  <li><a href="{% url "Ladies" %}" class="btn btn-primary">Women's Wear</a></li>
+                  <br>
+                  <li><a href="{% url "Kids" %}" class="btn btn-primary">Kid's Wear</a></li>
+                  <br>
+                  <li><a href="{% url "Watch" %}" class="btn btn-primary">Watches</a></li>
+                  <br>
+                  <li><a href="{% url "Bags" %}" class="btn btn-primary">Bags</a></li>
+                  <br>
+                  <li><a href="{% url "Shoes" %}" class="btn btn-primary">Shoe's</a></li>
+              </div>
+              <hr>
              <br>
              <div class="suscribe">
               <h3>Subscribe For Updates</h3>

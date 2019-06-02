@@ -41,8 +41,8 @@ body a {
 }
 
 .hot{
-    background-color: aqua;
-    padding: 10px;
+    background-color: rgb(129, 136, 136);
+    padding-top: 20px;
 }
 
 .hot .row{
@@ -140,6 +140,9 @@ body a {
     z-index: 2;
   }
 
+  .thumbnail{
+      background-color: rgb(133, 130, 130);
+  }
 
 #cat{
     color: red;
@@ -152,5 +155,21 @@ body a {
         margin-top: 0px;
         margin-bottom: 20px;
         margin-left: -1px;
+    }
+
+    .thumbnail{
+        margin-right: 25px;
+    }
+
+    .hot-items{
+        margin-left: 40px;
+    }
+
+    .search{
+        margin-left: 40px;
+    }
+
+    #advantages{
+        margin-bottom: 50px;
     }
 }
