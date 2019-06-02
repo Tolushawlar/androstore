@@ -81,7 +81,7 @@ def login(request):
 
 # views for the various sections of categories that are in the store
 def men(request):
-    query = Product.objects.filter(search__icontains='men')
+    query = Product.objects.filter(search__icontains='men-shirt')
     categories = Category.objects.all()
     context = {
         'categories': categories,
